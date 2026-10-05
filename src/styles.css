@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #070708;
+  --color-surface: #111113;
+  --color-elevated: #18181b;
+  --color-fg: #f3efe6;
+  --color-muted: #a8a29a;
+  --color-subtle: #6f6a64;
+  --color-accent: #ece8e1;
+  --color-accent-fg: #0c0c0d;
+  --color-line: #2c2c2f;
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --shadow-border: 0 0 0 1px rgb(243 239 230 / 0.1);
+  --shadow-border-hover: 0 0 0 1px rgb(243 239 230 / 0.18);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100%;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* ============================================
+   حركات دخول الصفحة الرئيسية
+   ============================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   تنسيق البوستر
+   ============================================ */
+.artboard {
+  position: relative;
+  overflow: hidden;
+  background: #070708;
+  color: var(--color-fg);
+  isolation: isolate;
+}
+
+.artboard-story {
+  width: 1080px;
+  height: 1920px;
+}
+
+.artboard-feed {
+  width: 1080px;
+  height: 1350px;
+}
+
+.artboard-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artboard-story .artboard-photo {
+  object-position: center 16%;
+}
+
+.artboard-feed .artboard-photo {
+  object-position: center top;
+}
+
+.artboard-shade {
+  position: absolute;
+  inset: 0;
+}
+
+.artboard-story .artboard-shade {
+  background:
+    linear-gradient(180deg, rgb(7 7 8 / 0.7) 0%, rgb(7 7 8 / 0.12) 16%, rgb(7 7 8 / 0) 28%),
+    linear-gradient(180deg, rgb(7 7 8 / 0) 52%, rgb(7 7 8 / 0.5) 68%, rgb(7 7 8 / 0.92) 86%, rgb(7 7 8 / 0.96) 100%),
+    linear-gradient(90deg, rgb(7 7 8 / 0.22) 0%, transparent 16%, transparent 84%, rgb(7 7 8 / 0.22) 100%);
+}
+
+.artboard-feed .artboard-shade {
+  background:
+    linear-gradient(180deg, rgb(7 7 8 / 0.72) 0%, rgb(7 7 8 / 0.14) 18%, rgb(7 7 8 / 0) 32%),
+    linear-gradient(180deg, rgb(7 7 8 / 0) 48%, rgb(7 7 8 / 0.55) 66%, rgb(7 7 8 / 0.94) 88%, rgb(7 7 8 / 0.97) 100%),
+    linear-gradient(90deg, rgb(7 7 8 / 0.2) 0%, transparent 16%, transparent 84%, rgb(7 7 8 / 0.2) 100%);
+}
+
+.artboard-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.artboard-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.artboard-story .artboard-content {
+  padding: 64px 64px 56px;
+}
+
+.artboard-feed .artboard-content {
+  padding: 40px 52px 36px;
+}
+
+/* ============================================
+   ملاحظة: قللنا مدة prefers-reduced-motion
+   عشان لو النظام مفعّل فيه، متلغيش الحركات تمامًا
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "التدريب الأونلاين",
+      "hasCanvas": false,
+      "bodyTextLen": 631,
+      "bodyTextHash": "7e5ae9495c24242140aed2169e2d06d417142d6035e7832a07baa2019b60b8f3",
+      "bodyTextPrefix": "خصم 50% عرض لفترة محدودة التدريب الأونلاين جسم متناسق · أقصى است",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "التدريب الأونلاين",
+      "hasCanvas": false,
+      "bodyTextLen": 568,
+      "bodyTextHash": "78ecaf2cc1ebcca1403d466f35606c88b7bd6be6176d72490efe9ee39dc454b4",
+      "bodyTextPrefix": "خصم 50% عرض لفترة محدودة التدريب الأونلاين جسم متناسق · أقصى است",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
